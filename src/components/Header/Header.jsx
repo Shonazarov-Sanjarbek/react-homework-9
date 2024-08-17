@@ -44,6 +44,11 @@ const Header = ({about}) => {
                               Контакты
                           </NavLink>
                       </li>
+                      <li>
+                          <NavLink to={`/login`} className={"text-black font-normal text-lg"}>
+                              Log   in
+                          </NavLink>
+                      </li>
                 </ul>
               </div>
               <div className='flex flex-col items-end'>

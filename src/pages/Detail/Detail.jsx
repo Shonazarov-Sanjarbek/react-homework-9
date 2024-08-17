@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useParams } from 'react-router-dom'
 import axios from "../../api"
 import { MdOutlineAddShoppingCart } from "react-icons/md";
+import ProductCard from '../../components/Product/ProductCard';
 
 
 const Detail = () => {
@@ -13,6 +14,7 @@ const Detail = () => {
   const [offsetsy, setoffsetsy] = useState(1)
   const [sellect, setSellect] = useState("")
   const [total, settottal] = useState(0)
+  const [productsCard, setProductsCard] = useState(null)
 
 
   useEffect(() => {
@@ -25,6 +27,12 @@ const Detail = () => {
         .then(res => setData(res.data))
         .catch(res => console.log(res))
   }, [])
+  useEffect(() => {
+    axios
+        .get(`/products`, {params: {limit: 4}})
+        .then(res => setProductsCard(res.data.products))
+        .catch(res => console.log(res))
+  }, [data])
 
   useEffect(() => {
     axios
@@ -157,7 +165,7 @@ const Detail = () => {
     <div className="cards w-full  mt-9 justify-center items-center">
         <p className="text-3xl font-bold">С этим товаром также заказывают</p>
         <div className="mt-8 flex items-center justify-center gap-3">
-          {productItem}
+          <ProductCard products={productsCard}/>
         </div>
       </div>
 
