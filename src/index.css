@@ -1,0 +1,26 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.containers{
+  width: 100%;
+  max-width: 1248px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+.header{
+  background: #f8f8f8;
+}
+.card1{
+  width: calc(20% - 16px);
+}
+.header .active{
+  color: #ff9900;
+}
